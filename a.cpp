@@ -193,9 +193,6 @@ void elim()
 		cout<<"no se pudo abrir el archivo"<<endl;
 	fclose(fd);	
 }
-//este eleminar es clasico, noelindicadoporleprofe
-
-
 
 void insertar(){
 	char rpta; int sgte,pos; bool band;
@@ -255,8 +252,8 @@ void insertar(){
 
 void eliminar()
 {
-	char nom[20], band = 'F'; int sgte, max_izq, aux, aux2;
-	if ((fd = fopen("personass.txt", "r+t")) != NULL) {
+	char nombre[20], flag = 'F'; int siguiente, maximo_izquierdo, aux, aux2;
+	if ((fd = fopen("temp.txt", "r+t")) != NULL) {
 
 		fread(&e, le, 1, fd);
 
@@ -264,47 +261,47 @@ void eliminar()
 
 		fflush(stdin);
 
-		gets(nom);
+		gets(nombre);
 
-		sgte = e.RZ;
+		siguiente = e.RZ;
 
-		while (sgte != -1) {
+		while (siguiente != -1) {
 
-			pos = (sgte - 1) * lr + le;
+			pos = (siguiente - 1) * lr + le;
 
 			fseek(fd, pos, );
 
 			fread(&s, 1r, 1, fd);
 
-			if (strcmp(nom, s.nombre) > 0) {
+			if (strcmp(nombre, s.nombre) > 0) {
 
-				aux = sgte;
+				aux = siguiente;
 
-				sgte = s.PD; continue;
+				siguiente = s.PD; continue;
 
 			}
-			band = 'V';
+			flag = 'V';
 
 			if (s.PI != -1) {
 
-					max_izq = s.PI;
+					maximo_izquierdo = s.PI;
 
 				aux2 = S.NR;
 
-				while (max_izq != 1) {
+				while (maximo_izquierdo != 1) {
 
-					pos = (max_izq - 1) * 1r + le;
+					pos = (maximo_izquierdo - 1) * 1r + le;
 
 					fseek(fd, pos, a);
 
 					fread(&reg_max_izq, lr, 1, fd);
 
 					if (reg_max_izq.PD != -1) {
-						aux2 = max_izq;
+						aux2 = maximo_izquierdo;
 
 					}
 
-					max_izq = reg_max_izq.PD;
+					maximo_izquierdo = reg_max_izq.PD;
 
 				}
 
@@ -384,7 +381,7 @@ void eliminar()
 				break;
 		}
 
-		if (band == 'F') { cout << "nombre no existe" << endl; }
+		if (flag == 'F') { cout << "nombre no existe" << endl; }
 
 		fclose(fd);
 
