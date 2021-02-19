@@ -252,7 +252,7 @@ void insertar(){
 
 void eliminar()
 {
-	char nombre[20], flag = 'F'; int siguiente, maximo_izquierdo, aux, aux2;
+	char nombre[20], flag = 'F'; int sg, max_izq, temp, temp_;
 	if ((fd = fopen("temp.txt", "r+t")) != NULL) {
 
 		fread(&e, le, 1, fd);
@@ -263,11 +263,11 @@ void eliminar()
 
 		gets(nombre);
 
-		siguiente = e.RZ;
+		sg = e.RZ;
 
-		while (siguiente != -1) {
+		while (sg != -1) {
 
-			pos = (siguiente - 1) * lr + le;
+			pos = (sg - 1) * lr + le;
 
 			fseek(fd, pos, );
 
@@ -275,58 +275,58 @@ void eliminar()
 
 			if (strcmp(nombre, s.nombre) > 0) {
 
-				aux = siguiente;
+				temp = sg;
 
-				siguiente = s.PD; continue;
+				sg = s.PD; continue;
 
 			}
 			flag = 'V';
 
 			if (s.PI != -1) {
 
-					maximo_izquierdo = s.PI;
+					max_izq = s.PI;
 
-				aux2 = S.NR;
+				temp_ = S.NR;
 
-				while (maximo_izquierdo != 1) {
+				while (max_izq != 1) {
 
-					pos = (maximo_izquierdo - 1) * 1r + le;
+					pos = (max_izq - 1) * 1r + le;
 
 					fseek(fd, pos, a);
 
 					fread(&reg_max_izq, lr, 1, fd);
 
 					if (reg_max_izq.PD != -1) {
-						aux2 = maximo_izquierdo;
+						temp_ = max_izq;
 
 					}
 
-					maximo_izquierdo = reg_max_izq.PD;
+					max_izq = reg_max_izq.PD;
 
 				}
 
 
-					char nomP[20];
+					char nP[20];
 
-				char celP[10];
+				char tP[10];
 
 				cout << "M@ximo izquierdo:" << reg_max_izq.nombre << endl;
 
-				strepy(nomP, reg_max_izq.nombre);
+				strepy(nP, reg_max_izq.nombre);
 
-				street(celP, reg_max_izq.celular);
+				street(tP, reg_max_izq.celular);
 
-				cout << "nombre " << nomP; cout << "cel " << celP;
+				cout << "nombre " << nP; cout << "cel " << tP;
 
 				strcpy(reg_max_izo.nombre, s.nombre);
 
 				strepy(reg_max_izq.celular, s.celular);
 
-				cout << "nombre " << nomP;
+				cout << "nombre " << nP;
 
-				cout << "tel " << celP << endl;
+				cout << "tel " << tP << endl;
 
-				strcpy(s.nombre, nomP); strcpy(s.celular, celP);
+				strcpy(s.nombre, nP); strcpy(s.celular, tP);
 
 				cout << "nombre " << s.nombre;
 
@@ -342,7 +342,7 @@ void eliminar()
 
 
 
-				pos = (aux2 - 1) * lr + le;
+				pos = (temp_ - 1) * lr + le;
 
 				fseek(fd, pos, 0);
 
@@ -360,7 +360,7 @@ void eliminar()
 
 					cout << "no tiene maximo izquierdo" << endl; s.ARE = e.UR; e.UR = s.NR;
 
-				pos = (aux - 1) * lr + le; fseek(fd, pos, 0); fread(&r, Ir, 1, fd); r.PI = S.PD;
+				pos = (temp - 1) * lr + le; fseek(fd, pos, 0); fread(&r, Ir, 1, fd); r.PI = S.PD;
 
 				cout << "n: " << r.nombre; cout << "nr: " << r.NR;
 
