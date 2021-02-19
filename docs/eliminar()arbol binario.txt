@@ -1,0 +1,154 @@
+
+void eliminar()
+{
+	char nom[20], band = 'F'; int sgte, max_izq, aux, aux2;
+	if ((fd = fopen("personass.txt", "r+t")) != NULL) {
+
+
+		fread(&e, le, 1, fd);
+
+		cout << "nombre:"; fflush(stdin); gets(nom); //algoritmo buscar al registro que apunta al nuevo
+		sgte = e.RZ;
+
+		while (sgte != -1) {
+
+			pos = (sgte - 1) * lr + le;
+
+			fseek(fd, pos, );
+
+			fread(&s, 1r, 1, fd);
+
+			if (strcmp(nom, s.nombre) > 0) {
+
+				aux = sgte;
+
+				sgte = s.PD; continue;
+
+
+
+			}
+			band = 'V';
+
+			//se encontro la clave, ahora buscamos su max_izquierdo
+
+			if (s.PI != -1) {
+
+				//existe un maximo izquierdo
+
+				max_izq = s.PI;
+
+				aux2 = S.NR;
+
+				while (max_izq != 1) {
+
+					pos = (max_izq - 1) * 1r + le;
+
+					fseek(fd, pos, a);
+
+					fread(&reg_max_izq, lr, 1, fd);
+
+					if (reg_max_izq.PD != -1) {
+						aux2 = max_izq;
+
+					}
+
+					max_izq = reg_max_izq.PD;
+
+				}
+
+				///caso B
+
+				char nomP[20];
+
+				char celP[10];
+
+				cout << "M@ximo izquierdo:" << reg_max_izq.nombre << endl;
+
+				strepy(nomP, reg_max_izq.nombre);
+
+				street(celP, reg_max_izq.celular);
+
+				cout << "nombre " << nomP; cout << "cel " << celP;
+
+				strcpy(reg_max_izo.nombre, s.nombre);
+
+				strepy(reg_max_izq.celular, s.celular);
+
+				cout << "nombre " << nomP;
+
+				cout << "tel " << celP << endl;
+
+				strcpy(s.nombre, nomP); strcpy(s.celular, celP);
+
+				cout << "nombre " << s.nombre;
+
+				cout << "cel " << s.celular << endl;
+
+				reg_max_izq.ARE = e.UR;
+
+				e.UR = reg_max_izq.NR; pos = (reg max izq.NR - 1) * 1r + le;
+
+				fseek(fd, pos, o);
+
+				fwrite(&reg_max_izq, lr, 1, fd);
+
+
+
+				pos = (aux2 - 1) * lr + le;
+
+				fseek(fd, pos, 0);
+
+				fread(&r, lr, 1, fd);
+
+				r.PD = reg_max_izq.PI;
+
+				fseek(fd, pos, 0);
+
+				fwrite(&r, Ir, 1, fd);
+
+			}
+
+			else {
+
+				//caso A
+
+				cout << "no tiene maximo izquierdo" << endl; s.ARE = e.UR; e.UR = s.NR;
+
+				pos = (aux - 1) * lr + le; fseek(fd, pos, 0); fread(&r, Ir, 1, fd); r.PI = S.PD;
+
+				cout << "n: " << r.nombre; cout << "nr: " << r.NR;
+
+			}
+
+			fseek(fd, pos, 0);
+
+			fwrite(&r, lr, 1, fd);
+
+			pos = (s.NR - 1) * lr + le;
+
+			fseek(fd, pos, 0);
+
+			fwrite(&s, lr, 1, fd);
+
+			fseek(fd, 0, 0); fwrite(&e, lr, 1, fd);
+
+			//fin de busqueda de maximo izquierdo
+
+			//fin de busqueda de maximo izquierdo
+			break;
+		}
+
+		//fin de algoritmo buscar
+
+		if (band == 'F') { cout << "nombre no existe" << endl; }
+
+		fclose(fd);
+
+	}
+
+	else
+
+		cout << "no se pudo abrir el archivo" << endl;
+
+}
+
